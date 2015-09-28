@@ -14,6 +14,9 @@ Rust seems like a cool up and coming systems level language. Some things that st
 While Rust seems to be like a fairly strong and easy language to grasp, it's still young and much of the API is still a WIP and should not be used. There are also lingering issues with massive memory leaks.
 
 Read more about [Rust](https://doc.rust-lang.org)
+
+So lets write your typical merge sort implementation in Rust!
+
 ## Usage
 
 * Clone the repository
