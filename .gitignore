@@ -1,4 +1,4 @@
 target
-main
+example
 *.rlib
 .DS_Store
