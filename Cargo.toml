@@ -1,0 +1,4 @@
+[package]
+name = "rust-merge-sort"
+version = "0.1.0"
+authors = ["Alex Bezobchuk <abezobchuk@gmail.com>"]
