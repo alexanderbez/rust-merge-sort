@@ -9,7 +9,7 @@
   a start, middle and end index within a primary mutable list, l1. The
   ordering result is copied to the worker list, l2.
 */
-fn merge(l1: &mut Vec<i32>, s: usize, m: usize, e: usize, l2: &mut Vec<i32>) {
+fn merge(l1: &Vec<i32>, s: usize, m: usize, e: usize, l2: &mut Vec<i32>) {
   let mut ptr1 = s;
   let mut ptr2 = m;
 
@@ -32,8 +32,8 @@ fn merge(l1: &mut Vec<i32>, s: usize, m: usize, e: usize, l2: &mut Vec<i32>) {
   list, l1. The index ranges are regarded to represent an ordered sublist
   within the worker list, l2.
 */
-fn merge_copy(l1: &mut Vec<i32>, s: usize, e: usize, l2: &mut Vec<i32>) {
-  for i in s..e { l1[i] = l2[i]; }
+fn merge_copy(l1: &Vec<i32>, s: usize, e: usize, l2: &mut Vec<i32>) {
+  (s..e).for_each(|i| l1[i] = l2[i]);
 }
 
 /*
@@ -42,9 +42,7 @@ fn merge_copy(l1: &mut Vec<i32>, s: usize, e: usize, l2: &mut Vec<i32>) {
   original list. These sub-lists are then merged together keeping order.
 */
 fn merge_split(l1: &mut Vec<i32>, s: usize, e: usize, l2: &mut Vec<i32>) {
-  if (e - s) <= 1 {
-    return;
-  } else {
+  if e - s > 1 {
     let m: usize = (e + s) / 2;
 
     merge_split(l1, s, m, l2);
