@@ -20,39 +20,42 @@ So lets write your typical merge sort implementation in Rust!
 ## Usage
 
 * Clone the repository
-* Build the library
+* Test the code
 
-```shell
-$ rustc --crate-type=lib src/merge_sort.rs
+```bash
+$ cargo test
 ```
 
-* Add the crate to your project
+* Check out the example at [examples/sort.rs](examples/sort.rs):
 
-```
-extern crate merge_sort;
-```
+```rust
+extern crate rust_merge_sort;
 
-* Sort your list!
-
-```
 fn main() {
-  let mut list: Vec<i32> = vec![234234, 9, 4, 5, 99, 1,-3, 0, -1];
-  
-  // Print the original vector to STDOUT
-  println!("Original list: {:?}", example_list);
+    let mut list: Vec<i32> = vec![234234, 9, 4, 5, 99, 1,-3, 0, -1];
+    
+    // Print the original vector to STDOUT
+    println!("Original list: {:?}", example_list);
 
-  // Merge the list
-  merge_sort::sort(&mut example_list);
+    // Merge the list
+    rust_merge_sort::sort(&mut example_list);
 
-  // Print the sorted vector to STDOUT
-  println!("Sorted list: {:?}", example_list);
+    // Print the sorted vector to STDOUT
+    println!("Sorted list: {:?}", example_list);
 }
 ``` 
 
-Example
+Which outputs:
 
-```shell
-$ rustc --crate-type=lib src/merge_sort.rs; rustc -L . src/example.rs; ./example
+```bash
+$ cargo run --example sort
 Original list: [234234, 9, 4, 5, 99, 1, -3, 0, -1]
 Sorted list: [-3, -1, 0, 1, 4, 5, 9, 99, 234234]
+```
+
+* Add it as dependency to your `Cargo.toml` and start using it in your project:
+
+```toml
+[dependencies]
+rust_merge_sort = { version = "*", path = "path/to/rust-merge-sort" }
 ```

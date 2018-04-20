@@ -1,7 +1,7 @@
 //! Example use of merge sort.
 
 // Use external crate(s)
-extern crate merge_sort;
+extern crate rust_merge_sort;
 
 fn main () {
     // Example mutable vector of i32 elements
@@ -11,7 +11,7 @@ fn main () {
     println!("Original list: {:?}", example_list);
 
     // Merge the list
-    merge_sort::sort(&mut example_list);
+    rust_merge_sort::sort(&mut example_list);
 
     // Print the sorted vector to STDOUT
     println!("Sorted list: {:?}", example_list);
